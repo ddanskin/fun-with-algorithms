@@ -35,14 +35,15 @@ public class SelectionSort {
     }
 
     public void printArray(int[] arr) {
-    
-        for (int i = 0; i < 10; i++) {
+ 
+        for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
         }
         System.out.print("\n");
     }
 
 	public static void main(String[] args) throws IOException{
+        /* test case
         int[] arr = new int[]{23,12,54,6,9,1,37,12,76,24};
         
         SelectionSort newSort = new SelectionSort(arr);
@@ -51,5 +52,6 @@ public class SelectionSort {
         System.out.println("Sorted array: ");
 
         newSort.printArray(arr);
+        */
 	}
 }

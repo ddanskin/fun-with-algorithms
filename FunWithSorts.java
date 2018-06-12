@@ -18,17 +18,19 @@ public class FunWithSorts {
 	    BufferedReader bufferedReader = new BufferedReader(stream);
 
         System.out.println("Choose a sort: selection, merge, bubble, insertion, quicksort, or heapsort ");
-        String sortName = bufferedReader.readLine();
+        String sortName = bufferedReader.readLine().trim();
         
         System.out.println("Enter the number of items to sort: ");
         int n = Integer.parseInt(bufferedReader.readLine());
 
         int [] arr = new int[n];
 
+        // add random numbers to the array
         for (int i = 0; i < n; i++) {
             Random rand = new Random();
             arr[i] = rand.nextInt(100) + 1;
         }
+
         System.out.println("Sort type: " + sortName);
         System.out.println("Array size: " + n);
         for (int j = 0; j < n; j++) {
@@ -36,7 +38,8 @@ public class FunWithSorts {
         }
         System.out.print("\n");
         
-        if (sortName == "selection") {
+
+        if (sortName.equals("selection")) {
             SelectionSort arrSort = new SelectionSort(arr);
         }
 	}
