@@ -41,6 +41,8 @@ public class FunWithSorts {
 
         if (sortName.equals("selection")) {
             SelectionSort arrSort = new SelectionSort(arr);
+        } else if (sortName.equals("merge")) {
+            MergeSort arrSort = new MergeSort(arr);
         }
 	}
 }
