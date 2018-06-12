@@ -13,7 +13,19 @@ import java.util.Random;
 
 public class BubbleSort {
     public BubbleSort(int[] arr) {
-	}
+	    int n = arr.length;
+        boolean items_swapped;
+        do {
+            items_swapped = false;
+            for (int i = 0; i < n-1; i++) {
+                if (arr[i+1] < arr[i]) {
+                    swapValues(arr, i, i+1);
+                    items_swapped = true;
+                }
+            }
+            printArray(arr);
+        } while (items_swapped);
+    }
 
     public void swapValues(int[] arr, int a, int b) {
         int temp = arr[a];
