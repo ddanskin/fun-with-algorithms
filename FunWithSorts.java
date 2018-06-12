@@ -1,32 +1,18 @@
 /* ----------------------------------------------------------------------------
 *	By: Danielle Danskin
-* 	Created: 06/10/2018
-* 	Last updated: 06/10/2018
+* 	Created: 06/12/2018
+* 	Last updated: 06/12/2018
 *
-*	Compilation: javac SelectionSort.java
-* 	Execution: java SelectionSort
+*	Compilation: javac FunWithSorts.java
+* 	Execution: java FunWithSorts
 *
-*	This program sorts an array using selection sort.
+*	This program takes in a sort type and an array length and creates a random
+*	array of integers between 1-100.
 * ---------------------------------------------------------------------------*/
 import java.io.*;
 import java.util.Random;
 
-public class SelectionSort {
-    public SelectionSort(int[] arr) {
-       /* int min;
-        int[] arr2 = new int[arr.length];
-        for (int i = 0; i < n - 1; i++) {
-            min = i;
-            for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[min]) {
-                    min = j;
-                }
-            }
-            arr2.push(min);
-        }*/
-
-	}
-
+public class FunWithSorts {
 	public static void main(String[] args) throws IOException{
 	    InputStreamReader stream = new InputStreamReader (System.in);
 	    BufferedReader bufferedReader = new BufferedReader(stream);
@@ -43,7 +29,6 @@ public class SelectionSort {
             Random rand = new Random();
             arr[i] = rand.nextInt(100) + 1;
         }
-        SelectionSort newSort = new SelectionSort(arr);
         System.out.println("Sort type: " + sortName);
         System.out.println("Array size: " + n);
         for (int j = 0; j < n; j++) {
