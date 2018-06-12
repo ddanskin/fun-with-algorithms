@@ -43,6 +43,16 @@ public class FunWithSorts {
             SelectionSort arrSort = new SelectionSort(arr);
         } else if (sortName.equals("merge")) {
             MergeSort arrSort = new MergeSort(arr);
+        } else if (sortName.equals("bubble")) {
+            BubbleSort arrSort = new BubbleSort(arr);
+        } else if (sortName.equals("insertion")) {
+            InsertionSort arrSort = new InsertionSort(arr);
+        } else if (sortName.equals("quicksort")) {
+            Quicksort arrSort = new Quicksort(arr);
+        } else if (sortName.equals("heapsort")) {
+            Heapsort arrSort = new Heapsort(arr);
+        } else {
+            System.out.println("Sorry, I don't know that sorting method.");
         }
 	}
 }
