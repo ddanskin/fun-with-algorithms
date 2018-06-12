@@ -13,20 +13,24 @@ import java.util.Random;
 
 public class MergeSort {
     public MergeSort(int[] arr) {
+
         if (arr.length >= 2) {
+        
             int groupSize = 2;
     
             while (groupSize <= arr.length) {
+
                 for (int i = 0; i < arr.length; i+=groupSize) {
+                
                     for (int j = i; j < groupSize; j++) {
-                    
+                        int a = i;
                     }
                     if(arr[i] > arr[i+1]) {
                         swapValues(arr, i, i+1);
                     }
                     printArray(arr);
                 }
-                groupSize += 2;
+                groupSize *= 2;
             }
         }
 	}

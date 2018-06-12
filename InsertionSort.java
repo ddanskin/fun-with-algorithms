@@ -13,7 +13,17 @@ import java.util.Random;
 
 public class InsertionSort {
     public InsertionSort(int[] arr) {
-	}
+        int n = arr.length;
+    
+        for (int i = 0; i < n; i++) {
+            int curr = i;
+            while ( i != 0 && arr[curr] < arr[curr-1]) {
+                swapValues(arr, curr, curr-1);
+                curr--;
+            }
+            printArray(arr);
+        }
+    }
 
     public void swapValues(int[] arr, int a, int b) {
         int temp = arr[a];
