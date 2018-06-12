@@ -17,7 +17,7 @@ public class FunWithSorts {
 	    InputStreamReader stream = new InputStreamReader (System.in);
 	    BufferedReader bufferedReader = new BufferedReader(stream);
 
-        System.out.println("Enter sort name: ");
+        System.out.println("Choose a sort: selection, merge, bubble, insertion, quicksort, or heapsort ");
         String sortName = bufferedReader.readLine();
         
         System.out.println("Enter the number of items to sort: ");
@@ -35,6 +35,9 @@ public class FunWithSorts {
             System.out.print(arr[j] + " ");
         }
         System.out.print("\n");
-
+        
+        if (sortName == "selection") {
+            SelectionSort arrSort = new SelectionSort(arr);
+        }
 	}
 }

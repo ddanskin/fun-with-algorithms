@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
 *	By: Danielle Danskin
 * 	Created: 06/10/2018
-* 	Last updated: 06/10/2018
+* 	Last updated: 06/12/2018
 *
 *	Compilation: javac SelectionSort.java
 * 	Execution: java SelectionSort
@@ -13,8 +13,9 @@ import java.util.Random;
 
 public class SelectionSort {
     public SelectionSort(int[] arr) {
-       /* int min;
-        int[] arr2 = new int[arr.length];
+        int n = arr.length;
+        int min;
+    
         for (int i = 0; i < n - 1; i++) {
             min = i;
             for (int j = i + 1; j < n; j++) {
@@ -22,34 +23,33 @@ public class SelectionSort {
                     min = j;
                 }
             }
-            arr2.push(min);
-        }*/
-
+            swapValues(arr, i , min);
+            printArray(arr);
+        }
 	}
 
-	public static void main(String[] args) throws IOException{
-	    InputStreamReader stream = new InputStreamReader (System.in);
-	    BufferedReader bufferedReader = new BufferedReader(stream);
+    public void swapValues(int[] arr, int a, int b) {
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
 
-        System.out.println("Enter sort name: ");
-        String sortName = bufferedReader.readLine();
-        
-        System.out.println("Enter the number of items to sort: ");
-        int n = Integer.parseInt(bufferedReader.readLine());
-
-        int [] arr = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            Random rand = new Random();
-            arr[i] = rand.nextInt(100) + 1;
-        }
-        SelectionSort newSort = new SelectionSort(arr);
-        System.out.println("Sort type: " + sortName);
-        System.out.println("Array size: " + n);
-        for (int j = 0; j < n; j++) {
-            System.out.print(arr[j] + " ");
+    public void printArray(int[] arr) {
+    
+        for (int i = 0; i < 10; i++) {
+            System.out.print(arr[i] + " ");
         }
         System.out.print("\n");
+    }
 
+	public static void main(String[] args) throws IOException{
+        int[] arr = new int[]{23,12,54,6,9,1,37,12,76,24};
+        
+        SelectionSort newSort = new SelectionSort(arr);
+        
+        // print final sorted array
+        System.out.println("Sorted array: ");
+
+        newSort.printArray(arr);
 	}
 }
