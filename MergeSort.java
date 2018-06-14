@@ -34,7 +34,14 @@ public class MergeSort {
             }
         }
 	}
+    public sort(int[] arr) {
+    
+    }
 
+    public merge(int[] arr1, int[] arr2) {
+    
+    }
+    
     public void swapValues(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];

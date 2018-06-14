@@ -13,7 +13,12 @@ import java.util.Random;
 
 public class Heapsort {
     public Heapsort(int[] arr) {
-	}
+    // if arr[1] or arr[2] are larger than arr[0], swap	
+    }
+    
+    public void heapify(int[] arr, int n) {
+    
+    }
 
     public void swapValues(int[] arr, int a, int b) {
         int temp = arr[a];
