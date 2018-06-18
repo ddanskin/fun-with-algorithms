@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
 *	By: Danielle Danskin
 * 	Created: 06/12/2018
-* 	Last updated: 06/12/2018
+* 	Last updated: 06/18/2018
 *
 *	Compilation: javac MergeSort.java
 * 	Execution: java MergeSort
@@ -9,11 +9,18 @@
 *	This program sorts an array using merge sort.
 * ---------------------------------------------------------------------------*/
 import java.io.*;
-import java.util.Random;
 
 public class MergeSort {
-    public MergeSort(int[] arr) {
 
+    public static int[] mergeSort(int[] arr) {
+        int n = arr.length;
+        if (n <= 1) {
+            return arr;
+        }
+        int[] arr1 = copyValues(new int[n/2], arr, 0);
+        int[] arr2 = copyValues(new int[n - n/2], arr, n/2);
+         
+        return merge(mergeSort(arr1), mergeSort(arr2)); 
 	}
 
     public static int[] merge(int[] arr1, int[] arr2) {
@@ -34,11 +41,21 @@ public class MergeSort {
                 mergedArr[i] = arr2[point2];
                 point2++;
             }
-        }    
+        }
+        printArray(mergedArr);
         return mergedArr;
     }
     
-    public void printArray(int[] arr) {
+    public static int[] copyValues(int[] newArr, int[] origArr, int start) {
+        int pointer = start;
+        for (int i = 0; i < newArr.length; i++) {
+            newArr[i] = origArr[pointer];
+            pointer++;
+        }
+        return newArr;
+    }
+    
+    public static void printArray(int[] arr) {
  
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
@@ -46,16 +63,18 @@ public class MergeSort {
         System.out.print("\n");
     }
 
-	public static void main(String[] args) throws IOException{
-        /* test case
+    // test cases for mergeSort
+    public static void main(String[] args) throws IOException{
+ 
         int[] arr = new int[]{23,12,54,6,9,1,37,12,76,24};
-        
-        MergeSort newSort = new MergeSort(arr);
-        
+        arr = mergeSort(arr);
         // print final sorted array
         System.out.println("Sorted array: ");
 
-        newSort.printArray(arr);
-        */
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.print("\n");
+        
 	}
 }
