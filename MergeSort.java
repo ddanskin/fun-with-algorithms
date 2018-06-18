@@ -12,7 +12,11 @@ import java.io.*;
 
 public class MergeSort {
 
-    public static int[] mergeSort(int[] arr) {
+    public MergeSort(int[] arr){
+        arr = divideSort(arr);
+    }
+
+    public int[] divideSort(int[] arr) {
         int n = arr.length;
         if (n <= 1) {
             return arr;
@@ -20,10 +24,10 @@ public class MergeSort {
         int[] arr1 = copyValues(new int[n/2], arr, 0);
         int[] arr2 = copyValues(new int[n - n/2], arr, n/2);
          
-        return merge(mergeSort(arr1), mergeSort(arr2)); 
+        return merge(divideSort(arr1), divideSort(arr2)); 
 	}
 
-    public static int[] merge(int[] arr1, int[] arr2) {
+    public int[] merge(int[] arr1, int[] arr2) {
         int[] mergedArr = new int[arr1.length + arr2.length];
         int point1 = 0;
         int point2 = 0;
@@ -46,7 +50,7 @@ public class MergeSort {
         return mergedArr;
     }
     
-    public static int[] copyValues(int[] newArr, int[] origArr, int start) {
+    public int[] copyValues(int[] newArr, int[] origArr, int start) {
         int pointer = start;
         for (int i = 0; i < newArr.length; i++) {
             newArr[i] = origArr[pointer];
@@ -55,7 +59,7 @@ public class MergeSort {
         return newArr;
     }
     
-    public static void printArray(int[] arr) {
+    public void printArray(int[] arr) {
  
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i] + " ");
@@ -67,14 +71,10 @@ public class MergeSort {
     public static void main(String[] args) throws IOException{
  
         int[] arr = new int[]{23,12,54,6,9,1,37,12,76,24};
-        arr = mergeSort(arr);
+        MergeSort newSort = new MergeSort(arr);
         // print final sorted array
         System.out.println("Sorted array: ");
 
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
-        System.out.print("\n");
-        
+        newSort.printArray(arr);
 	}
 }
