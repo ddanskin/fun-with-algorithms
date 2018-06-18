@@ -14,40 +14,30 @@ import java.util.Random;
 public class MergeSort {
     public MergeSort(int[] arr) {
 
-        if (arr.length >= 2) {
-        
-            int groupSize = 2;
-    
-            while (groupSize <= arr.length) {
-
-                for (int i = 0; i < arr.length; i+=groupSize) {
-                
-                    for (int j = i; j < groupSize; j++) {
-                        int a = i;
-                    }
-                    if(arr[i] > arr[i+1]) {
-                        swapValues(arr, i, i+1);
-                    }
-                    printArray(arr);
-                }
-                groupSize *= 2;
-            }
-        }
 	}
-    public sort(int[] arr) {
-    
-    }
 
-    public merge(int[] arr1, int[] arr2) {
-    
+    public static int[] merge(int[] arr1, int[] arr2) {
+        int[] mergedArr = new int[arr1.length + arr2.length];
+        int point1 = 0;
+        int point2 = 0;
+        for (int i = 0; i < mergedArr.length; i++) {
+            if (point1 >= arr1.length){
+                mergedArr[i] = arr2[point2];
+                point2++;
+            } else if (point2 >= arr2.length) {
+                mergedArr[i] = arr1[point1];
+                point1++;
+            } else if (arr1[point1] <= arr2[point2]){
+                mergedArr[i] = arr1[point1];
+                point1++;
+            } else {
+                mergedArr[i] = arr2[point2];
+                point2++;
+            }
+        }    
+        return mergedArr;
     }
     
-    public void swapValues(int[] arr, int a, int b) {
-        int temp = arr[a];
-        arr[a] = arr[b];
-        arr[b] = temp;
-    }
-
     public void printArray(int[] arr) {
  
         for (int i = 0; i < arr.length; i++) {
